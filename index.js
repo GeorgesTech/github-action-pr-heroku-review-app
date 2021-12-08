@@ -130,8 +130,10 @@ Toolkit.run(
             },
           },
         });
+        tools.log.info('resp', JSON.stringify(resp, null, 2));
         tools.log.complete("Created review app");
       } catch (e) {
+        tools.log.info('err', JSON.stringify(e, null, 2));
         // A 409 is a conflict, which means the app already exists
         if (e.statusCode !== 409) {
           throw e;
